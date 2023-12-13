@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contact-detail">
+    <h2>Contact Details</h2>
+    <p>Name: {{ contact.name }}</p>
+    <p>Email: {{ contact.email }}</p>
+    <p>Notes: {{ contact.notes }}</p>
+    <p>Created Time: {{ contact.created_time }}</p>
+    <a class="btn" href="{% url 'contact_list' %}">Home</a>
+    <a class="btn" href="{% url 'edit_contact' contact.pk %}">Edit</a>
+    <a class="btn" href="{% url 'delete_contact' contact.pk %}">Delete</a>
+</div>
+{% endblock %}
