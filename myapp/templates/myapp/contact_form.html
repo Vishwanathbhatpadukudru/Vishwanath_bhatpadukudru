@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contact-form">
+    <h2 style="color:blue;">Create a Contact</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}: </label>
+            {{ form.name }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}: </label>
+            {{ form.email }}
+        </div>
+        <br>
+        <div class="form-field">
+        <label for="{{ form.notes.id_for_label }}">{{ form.notes.label }}: </label>
+        {{ form.notes }}
+    </div>
+        <br>
+        <button class="btn" type="submit">Submit</button>
+        <a class="btn" href="{% url 'contact_list' %}">Cancel</a>
+    </form>
+</div>
+
+{% if errors_json %}
+<script>
+    let formErrors = JSON.parse('{{ errors_json|safe }}');
+    let errorMessages = [];
+
+    for (let field in formErrors) {
+        if (formErrors.hasOwnProperty(field)) {
+            let messages = formErrors[field].map(error => error.message);
+            errorMessages.push(`${field}: ${messages.join(', ')}`);
+        }
+    }
+
+    if (errorMessages.length > 0) {
+        alert(errorMessages.join('\n'));
+    }
+</script>
+
+{% endif %}
+{% endblock %}
