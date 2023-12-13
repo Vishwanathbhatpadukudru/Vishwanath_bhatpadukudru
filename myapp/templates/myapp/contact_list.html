@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contact-list">
+    <a href="{% url 'create_contact' %}" class="btn">Create a New Contact</a>
+    <table>
+        <tr>
+            <th>Contact Name</th>
+            <th>Email</th>
+            <th>Created Time</th>
+            <th>Actions</th>
+        </tr>
+        {% for contact in contacts %}
+        <tr>
+            <td><a href="{% url 'contact_detail' contact.pk %}">{{ contact.name }}</a></td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.created_time }}</td>
+            <td>
+                <a href="{% url 'edit_contact' contact.pk %}" class="btn">Edit</a>
+                <a href="{% url 'delete_contact' contact.pk %}" class="btn">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No contacts found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
