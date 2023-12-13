@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management</title>>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1 style="color:blue;">Contact Management</h1>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <br>
+    <br>
+    <footer>
+        ©Created by Vishwanath Bhat
+    </footer>
+    <!-- Add your JavaScript scripts or links here -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
