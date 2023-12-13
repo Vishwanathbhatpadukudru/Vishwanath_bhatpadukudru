@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    text-align: center;
+    padding: 1em;
+    color: blue;
+}
+
+.hdng {
+    color:blue;
+}
+
+.contact-list, .contact-form, .contact-detail, .confirm-delete {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.contact-list table {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.contact-list th, .contact-list td {
+    text-align: left;
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+.btn {
+    display: inline-block;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.3em;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
